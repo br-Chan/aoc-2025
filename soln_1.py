@@ -6,13 +6,13 @@ def turn(val: int, direction: str, steps: int) -> int:
     """
     new_val = 0
     if direction == "R":
-        new_val = val + steps
-        if new_val > 99:
-            new_val -= 100
+        new_val = (val + steps) % 100
+        # if new_val > 99:
+        #     new_val -= 100
     elif direction == "L":
-        new_val = val - steps
-        if new_val < 0:
-            new_val += 100
+        new_val = (val - steps) % 100
+        # if new_val < 0:
+        #     new_val += 100
     return new_val
 
 def main():
@@ -20,7 +20,7 @@ def main():
     Reads the document and iterates through it - every time it hits 0 a counter is incremented.
     """
     password = 0
-    file_path = "1-input.txt"
+    file_path = "input.txt"
     val = 50
 
     print("The dial starts by pointing at", val)
